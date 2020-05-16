@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from './components/Header';
-import Fish from './components/Fish';
+import Header from './Header';
+import Fish from './Fish';
 
 class App extends React.Component {
   state = {
