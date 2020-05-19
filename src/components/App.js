@@ -1,11 +1,12 @@
 import React from 'react';
 import Header from './Header';
 import Fish from './Fish';
-const endpoint = './fish.json';
+const  endpoint = './fish.json';
 
 class App extends React.Component {
   state = {
-    fish: []
+    fish: [],
+    bugs: []
   }
   catchFish = e => {
     fetch(endpoint)
@@ -13,8 +14,7 @@ class App extends React.Component {
       .then(results => {
           const fish = Object.keys(results)
           .map(key => results[key]);
-          this.setState({fish})
-          console.log('Fish caught!')
+          this.setState({fish});
         })
   }
 

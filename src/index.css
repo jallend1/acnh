@@ -27,14 +27,24 @@ li{
 }
 
 .item{
-  
+  margin: auto;
   width: 300px;
-  padding: 1em;
+  padding: .2em;
 }
 
 .item-head{
+  background: gold;
   display: flex;
   justify-content: space-between;
+}
+
+.collapsed{
+  max-height: 0px;
+  overflow: hidden;
+}
+
+.expanded{
+  height: auto;
 }
 
 li p{

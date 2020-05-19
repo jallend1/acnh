@@ -1,14 +1,15 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 
 class Header extends React.Component{
     state = {
         fishActive: false,
         bugActive: false
     }
-    toggleClass = () => {
-        const activeStatus = this.state.fishActive;
-        this.setState({ fishActive: !activeStatus })
+    clickBugs = () => {
+        this.setState({ fishActive: false, bugActive: true});
+    }
+    clickFish = () => {
+        this.setState({ fishActive: true, bugActive: false })
         this.props.catchFish();
     }
     render(){
@@ -17,8 +18,8 @@ class Header extends React.Component{
             <h1>ACNH</h1>
             <nav>
                 <ul>
-                    <li className={this.state.fishActive ? "active" : "inactive"} onClick={ this.toggleClass }>Fish</li>                    
-                    <li>Bugs</li>
+                    <li className={this.state.fishActive ? "active" : "inactive"} onClick={ this.clickFish }>Fish</li>                    
+                    <li className={this.state.bugActive ? "active" : "inactive"} onClick={this.clickBugs}>Bugs</li>
                 </ul>
             </nav>
         </>
