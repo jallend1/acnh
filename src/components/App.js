@@ -11,9 +11,9 @@ class App extends React.Component {
     fetch(endpoint)
       .then(data => data.json())
       .then(results => {
-          const fishArray = Object.keys(results)
+          const fish = Object.keys(results)
           .map(key => results[key]);
-          this.setState({fish: fishArray})
+          this.setState({fish})
           console.log('Fish caught!')
         })
   }
@@ -23,8 +23,11 @@ class App extends React.Component {
       <div className="App">
         <Header catchFish={this.catchFish} />
         <ul>
-          {this.state.fish.map(fish => 
-            <Fish fish={this.state.fish} />
+          {this.state.fish.map((fish, index) => {
+            return (
+              <Fish fish={fish} />
+            )
+          }
           )}
         </ul>
       </div>
