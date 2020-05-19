@@ -7,25 +7,26 @@ class App extends React.Component {
   state = {
     fish: []
   }
-
-  catchFish(){
+  catchFish = () => {
     fetch(endpoint)
       .then(data => data.json())
       .then(results => {
-        const fishArray = Object.keys(results)
-          .map( (key) => {
-            return { [key]: results[key] };
-          })
-          console.log(fishArray);
+          const fishArray = Object.keys(results)
+          .map(key => results[key]);
+          this.setState({fish: fishArray})
+          console.log('Fish caught!')
         })
   }
 
   render(){
-    this.catchFish();
     return (
       <div className="App">
-        <Header />
-        <Fish fish={this.state.fish} />
+        <Header catchFish={this.catchFish} />
+        <ul>
+          {this.state.fish.map(fish => 
+            <Fish fish={this.state.fish} />
+          )}
+        </ul>
       </div>
     );
   }
