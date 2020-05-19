@@ -1,3 +1,50 @@
+
+nav ul{
+  background: green;
+}
+
+nav ul li{
+  display: inline;
+  padding: 0 1em;
+}
+
+li{
+  list-style: none;
+}
+
+.list{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.active{
+  background: red;
+}
+
+.inactive{
+  background: green;
+}
+
+.item{
+  
+  width: 300px;
+  padding: 1em;
+}
+
+.item-head{
+  display: flex;
+  justify-content: space-between;
+}
+
+li p{
+  display: inline;
+}
+
+li div{
+  display: block;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

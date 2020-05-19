@@ -7,7 +7,7 @@ class App extends React.Component {
   state = {
     fish: []
   }
-  catchFish = () => {
+  catchFish = e => {
     fetch(endpoint)
       .then(data => data.json())
       .then(results => {
@@ -22,12 +22,10 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header catchFish={this.catchFish} />
-        <ul>
-          {this.state.fish.map((fish, index) => {
-            return (
-              <Fish fish={fish} />
-            )
-          }
+        <ul className="list">
+          {this.state.fish.map(fish => 
+              <Fish fish={fish} key={fish["file-name"]}/>
+      
           )}
         </ul>
       </div>
