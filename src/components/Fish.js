@@ -10,14 +10,12 @@ class Fish extends React.Component{
         this.setState({collapsed: !currentCollapsed});
     }
     chooseImagePath = () => {
-        const url = "http://acnhapi.com/images/";
+        const url = './images/'
         const active = this.props.active;                                   // The active item type
         if(this.state.collapsed){
             return null;
-        }else if(active === 'bugs' || active === 'fish'){
-            return `${url}${active}/${this.props.fish.id}`;
-        }else if(active === 'fossils'){
-            return `${url}${active}/${this.props.fish["file-name"]}`
+        }else{
+            return `${url}${active}/${this.props.fish["file-name"]}.png`
         }
     }
 
@@ -35,7 +33,7 @@ class Fish extends React.Component{
                 <h4>{catchPhrase}</h4>
                 <img alt="The item itself!" src={this.chooseImagePath()} crossOrigin="anonymous" />
                 <div>
-                    <p><span className="blathers">🦉 Blathers' Take 🦉 </span></p>
+                    <p className="blathers"><span>🦉 Blathers' Take 🦉 </span></p>
                     <p>{museumPhrase}</p>
                 </div>
             </main>
