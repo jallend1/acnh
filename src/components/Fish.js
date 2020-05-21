@@ -10,7 +10,6 @@ class Fish extends React.Component{
     }
 
     render(){
-        console.log(this.props.fish)
         const { name, price, "catch-phrase": catchPhrase, "museum-phrase": museumPhrase } = this.props.fish;
         return (
         <li className="item">
