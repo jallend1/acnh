@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import About from './About';
 import App from './App';
+import Songs from './Songs';
 
 
 const Router = () => {
@@ -10,6 +11,9 @@ const Router = () => {
             <Switch>
                 <Route path="/about">
                     <About />
+                </Route>
+                <Route path="/songs">
+                    <Songs />
                 </Route>
                 <Route path="/">
                     <App />
