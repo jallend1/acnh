@@ -5,12 +5,14 @@ class Headings extends React.Component{
     render(){
         return (
             <>
-                <h2>{this.props.active}</h2>
+                <h2>{this.props.active.toUpperCase()}</h2>
                 <form onChange={this.props.changeSort}>
-                    <label>Alphabetical</label>
+                    <label htmlFor="alpha">Alphabetical</label>
                         <input defaultChecked type="radio" value="alpha" id="alpha" name="order"/>
-                    <label>Nook's Price</label>
+                    <label htmlFor="nook">Nook's Price</label>
                         <input type="radio" value="nook" id="nook" name="order"/>
+                    <label htmlFor="flick">Flick's Price</label>
+                        <input type="radio" value="flick" id="flick" name="order"/>
                 </form>
             </>
         )

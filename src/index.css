@@ -1,3 +1,10 @@
+h2{
+  text-align: center;
+}
+
+h4{
+  text-align: center;
+}
 
 nav ul{
   background: green;
@@ -28,14 +35,26 @@ li{
 
 .item{
   margin: auto;
-  width: 300px;
+  width: 600px;
   padding: .2em;
 }
 
 .item-head{
   background: gold;
+  padding-left: 1em;
   display: flex;
   justify-content: space-between;
+}
+
+.item-head img{
+  width: 20px;
+  padding: 0 20px;
+}
+
+main img{
+  display: block;
+  width: 250px;
+  margin: auto;
 }
 
 .collapsed{
@@ -56,6 +75,7 @@ li div{
 }
 
 body {
+  background-image: url('/public/images/sprinkles.png');
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

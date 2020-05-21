@@ -11,7 +11,10 @@ const endpoint = {
 class App extends React.Component {
   state = {
     fish: [],
-    bugs: [], 
+    bugs: [],
+    fossils: [],
+    songs: [],
+    villagers: [] ,
     active: 'fish',
     sort: 'alpha'
   }
@@ -30,23 +33,42 @@ class App extends React.Component {
           const creatures = Object.keys(results)
           .map(key => results[key]);
           this.setState({[creature]: creatures});
+          this.sortItems(this.state.sort)
         });
     }
   }
 
   changeSort = e => {
     this.setState({sort: e.target.value})
-    this.sortItems();
+    this.sortItems(e.target.value);
   }
 
-  sortItems = e => {
-    const currentState = this.state.fish;
-    const keys = Object.keys(currentState).map(key => currentState[key]);
-    console.log(keys.sort())
+  sortItems = (sortMethod) => {
+    this.setState({sort: sortMethod})
+    const currentState = this.state[this.state.active];
+    if(sortMethod === 'alpha'){
+      currentState.sort((a, b) => a.name["name-en"] - b.name["name-en"]);
+      currentState.sort((a, b) => {
+        const nameA = a["name"]["name-en"].toLowerCase();
+        const nameB = b.name["name-en"].toLowerCase();
+        if( nameA > nameB) {
+          return 1
+        }else{
+          return -1;
+        }
+      });
+    }
+    else if(sortMethod === 'nook'){
+      const activeList = this.state.active;
+      const currentState = this.state[activeList];
+      currentState.sort((a, b) => a.price - b.price);
+      this.setState({[activeList]: currentState})
+    }
+    this.setState({fish: currentState})
   }
 
   render(){
-    const activeList = this.state.active;
+    this.catchCreatures(this.state.active);
     return (
       <div className="App">
         <Header 
@@ -57,7 +79,7 @@ class App extends React.Component {
         />
         <Headings active={this.state.active} changeSort={this.changeSort}/>
         <ul className="list">
-          {this.state[activeList].map(fish => <Fish fish={fish} key={fish["file-name"]}/>)
+          {this.state[this.state.active].map(fish => <Fish fish={fish} active={this.state.active} key={fish["file-name"]}/>)
         }
         </ul>
       </div>
