@@ -57,6 +57,12 @@ main img{
   margin: auto;
 }
 
+.blathers{
+  display: block;
+  text-align: center;
+  font-weight: bold;
+}
+
 .collapsed{
   max-height: 0px;
   overflow: hidden;

@@ -9,9 +9,20 @@ class Fish extends React.Component{
         const currentCollapsed = this.state.collapsed;
         this.setState({collapsed: !currentCollapsed});
     }
+    chooseImagePath = () => {
+        const url = "http://acnhapi.com/images/";
+        const active = this.props.active;                                   // The active item type
+        if(this.state.collapsed){
+            return null;
+        }else if(active === 'bugs' || active === 'fish'){
+            return `${url}${active}/${this.props.fish.id}`;
+        }else if(active === 'fossils'){
+            return `${url}${active}/${this.props.fish["file-name"]}`
+        }
+    }
 
     render(){
-        const { name, price, id, "catch-phrase": catchPhrase, "museum-phrase": museumPhrase } = this.props.fish;
+        const { name, price, "catch-phrase": catchPhrase, "museum-phrase": museumPhrase } = this.props.fish;
         return (
         <li className="item">
             <header className="item-head">
@@ -22,8 +33,11 @@ class Fish extends React.Component{
             </header>
             <main className={this.state.collapsed ? "collapsed" : "expanded"}>
                 <h4>{catchPhrase}</h4>
-                <img alt="" src={!this.state.collapsed ? `http://acnhapi.com/images/${this.props.active}/${id}` : 'null'} crossOrigin="anonymous" />
-                <div>{museumPhrase}</div>
+                <img alt="The item itself!" src={this.chooseImagePath()} crossOrigin="anonymous" />
+                <div>
+                    <p><span className="blathers">🦉 Blathers' Take 🦉 </span></p>
+                    <p>{museumPhrase}</p>
+                </div>
             </main>
         </li>
         )
