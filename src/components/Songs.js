@@ -14,7 +14,6 @@ class Songs extends React.Component{
                 const songs = Object.keys(results)
                 .map(key => results[key]);
                 this.setState({ songs })
-                console.dir(songs)
             })
         }
     }
