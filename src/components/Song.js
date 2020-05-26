@@ -5,6 +5,7 @@ class Song extends React.Component{
         console.log(this.props)
         return (
             <div>
+                <h1>K.K. Slider</h1>
                 <h3>{this.props.name["name-en"]}</h3>
             </div>
             
