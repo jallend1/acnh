@@ -19,7 +19,7 @@ class Songs extends React.Component{
     }
     
     render(){
-        this.getSongs();
+        // this.getSongs();
         return(
             <>
                 <h1>Does this work?</h1>

@@ -33,7 +33,7 @@ class Fish extends React.Component{
                 <h4>{catchPhrase}</h4>
                 <img alt="The item itself!" src={this.chooseImagePath()} crossOrigin="anonymous" />
                 <div>
-                    <p className="blathers"><span>🦉 Blathers' Take 🦉 </span></p>
+                    <p className="blathers"><span>🦉 Blathers' Thoughts 🦉 </span></p>
                     <p>{museumPhrase}</p>
                 </div>
             </main>

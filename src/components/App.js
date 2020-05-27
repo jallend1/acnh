@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Headings from './Headings';
 import Fish from './Fish';
+import Songs from './Songs';
 
 const endpoint = {
     fish: "./fish.json",
@@ -69,6 +70,9 @@ class App extends React.Component {
 
   render(){
     this.catchCreatures(this.state.active);
+    if(this.state.active === 'songs'){
+      return <Songs />
+    }
     return (
       <div className="App">
         <Header 
